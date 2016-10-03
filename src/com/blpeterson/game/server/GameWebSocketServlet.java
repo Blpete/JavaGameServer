@@ -7,7 +7,7 @@ public class GameWebSocketServlet extends WebSocketServlet {
 
 	@Override
 	public void configure(WebSocketServletFactory factory) {
-	factory.register(GameWebSocket.class);
+		factory.register(GameWebSocket.class);
 
 	}
 
