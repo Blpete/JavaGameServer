@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="JavaGameServer">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../Users/blpete/eclipse/jee-neon/eclipse/"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/"/>
     <property name="JavaGameCommon.location" value="../JavaGameCommon"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
@@ -16,9 +16,9 @@
     </path>
     <path id="JavaGameServer.classpath">
         <pathelement location="bin"/>
-        <pathelement location="lib/gson-2.7 (1).jar"/>
+        <pathelement location="lib/gson-2.7.jar"/>
+        <pathelement location="lib/javax.servlet-api-3.1.0.jar"/>
         <pathelement location="lib/jetty-all-9.2.13.v20150730.jar"/>
-        <pathelement location="lib/javax.servlet_3.1.0.v201410161800.jar"/>
         <path refid="JavaGameCommon.classpath"/>
     </path>
     <target name="init">
@@ -63,10 +63,5 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
-    </target>
-    <target name="GameServer">
-        <java classname="com.blpeterson.game.server.GameServer" failonerror="true" fork="yes">
-            <classpath refid="JavaGameServer.classpath"/>
-        </java>
     </target>
 </project>
